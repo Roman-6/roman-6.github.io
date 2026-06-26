@@ -1,0 +1,477 @@
+
+------------------------------------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #1e2a3a;
+  --primary-light: #2c3e50;
+  --accent: #c79a3e;
+  --accent-hover: #dbb45c;
+  --light: #f0f2f5;
+  --dark: #0f141c;
+  --text: #e8edf2;
+  --card-bg: rgba(30, 42, 58, 0.85);
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --radius: 12px;
+  --transition: 0.25s ease;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+  background: var(--dark);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+a:hover {
+  color: var(--accent-hover);
+}
+
+/* ------------------------------------------------------
+   2. Контейнер + общие утилиты
+------------------------------------------------------ */
+.container {
+  width: 92%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-left: 5px solid var(--accent);
+  padding-left: 20px;
+  margin-bottom: 2rem;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+.section-title span {
+  color: var(--accent);
+}
+
+/* ------------------------------------------------------
+   3. Шапка (header)
+------------------------------------------------------ */
+.header {
+  background: var(--primary);
+  padding: 18px 0;
+  border-bottom: 3px solid var(--accent);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(2px);
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #fff;
+}
+.logo-icon {
+  background: var(--accent);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: var(--dark);
+  box-shadow: 0 0 0 2px var(--dark), 0 0 0 4px var(--accent);
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 28px;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+.nav-list a {
+  color: #dce3ec;
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+  transition: all var(--transition);
+}
+.nav-list a:hover {
+  color: #fff;
+  border-bottom-color: var(--accent);
+}
+
+.header-phone {
+  background: var(--accent);
+  color: var(--dark);
+  font-weight: 700;
+  padding: 8px 20px;
+  border-radius: 40px;
+  font-size: 0.95rem;
+  transition: background var(--transition), transform 0.1s;
+  box-shadow: 0 2px 8px rgba(199, 154, 62, 0.3);
+}
+.header-phone:hover {
+  background: var(--accent-hover);
+  color: #0f141c;
+  transform: scale(1.02);
+}
+
+/* ------------------------------------------------------
+   4. Hero-секция
+------------------------------------------------------ */
+.hero {
+  background: linear-gradient(135deg, #0b121b 0%, #1e2a3a 80%);
+  padding: 60px 0 70px;
+  border-bottom: 2px solid var(--accent);
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: "⚔️";
+  position: absolute;
+  right: 5%;
+  bottom: 10%;
+  font-size: 12rem;
+  opacity: 0.08;
+  pointer-events: none;
+  transform: rotate(10deg);
+}
+
+.hero-grid {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.hero-content {
+  flex: 1 1 350px;
+}
+.hero-content h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.7);
+}
+.hero-content h1 span {
+  color: var(--accent);
+  background: rgba(0,0,0,0.3);
+  padding: 0 10px;
+  border-radius: 8px;
+}
+.hero-content p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  max-width: 550px;
+  margin-bottom: 28px;
+}
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.btn {
+  display: inline-block;
+  padding: 14px 34px;
+  font-weight: 700;
+  border-radius: 60px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all var(--transition);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.btn-primary {
+  background: var(--accent);
+  color: var(--dark);
+  box-shadow: 0 4px 14px rgba(199, 154, 62, 0.4);
+}
+.btn-primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(199, 154, 62, 0.6);
+}
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: #fff;
+}
+.btn-outline:hover {
+  background: var(--accent);
+  color: var(--dark);
+  transform: translateY(-3px);
+}
+
+.hero-stats {
+  flex: 1 1 280px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(6px);
+  padding: 30px 24px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(199, 154, 62, 0.25);
+}
+.stat-item {
+  text-align: center;
+}
+.stat-number {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: var(--accent);
+  display: block;
+  line-height: 1.2;
+}
+.stat-label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.7;
+}
+
+/* ------------------------------------------------------
+   5. Секция товаров / арсенал
+------------------------------------------------------ */
+.arsenal {
+  padding: 60px 0 70px;
+  background: var(--dark);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.product-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 24px 18px 30px;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all var(--transition);
+  box-shadow: var(--shadow);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.product-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.8), 0 0 0 1px rgba(199, 154, 62, 0.3);
+}
+
+.product-icon {
+  font-size: 3.8rem;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.product-card h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.product-card .desc {
+  opacity: 0.8;
+  font-size: 0.95rem;
+  margin-bottom: 14px;
+  flex: 1;
+}
+.product-price {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin: 10px 0 16px;
+}
+.product-price small {
+  font-size: 0.9rem;
+  font-weight: 400;
+  opacity: 0.6;
+  margin-left: 6px;
+}
+.btn-small {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  border-radius: 40px;
+  background: var(--primary-light);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all var(--transition);
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn-small:hover {
+  background: var(--accent);
+  color: var(--dark);
+  border-color: var(--accent);
+}
+
+/* ------------------------------------------------------
+   6. Секция "О команде"
+------------------------------------------------------ */
+.team-section {
+  padding: 60px 0;
+  background: linear-gradient(145deg, #121b26, #1a2838);
+  border-top: 1px solid #2c3e50;
+  border-bottom: 1px solid #2c3e50;
+}
+
+.team-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+}
+.team-text {
+  flex: 2 1 320px;
+}
+.team-text p {
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+  opacity: 0.9;
+}
+.team-text .highlight {
+  color: var(--accent);
+  font-weight: 600;
+}
+.team-badge {
+  flex: 1 1 200px;
+  background: rgba(0,0,0,0.35);
+  border-radius: var(--radius);
+  padding: 30px 20px;
+  text-align: center;
+  border: 1px solid rgba(199, 154, 62, 0.25);
+  backdrop-filter: blur(4px);
+}
+.team-badge .big-icon {
+  font-size: 4.2rem;
+}
+.team-badge h4 {
+  font-size: 1.5rem;
+  margin: 10px 0 4px;
+}
+.team-badge .sub {
+  opacity: 0.7;
+  font-size: 0.95rem;
+}
+
+/* ------------------------------------------------------
+   7. Подвал (footer)
+------------------------------------------------------ */
+.footer {
+  background: #0a111a;
+  padding: 40px 0 24px;
+  border-top: 2px solid var(--accent);
+  margin-top: auto;
+}
+.footer-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+.footer-col h5 {
+  font-size: 1.2rem;
+  margin-bottom: 14px;
+  color: #fff;
+  letter-spacing: 1px;
+}
+.footer-col h5 span {
+  color: var(--accent);
+}
+.footer-col p, .footer-col li {
+  opacity: 0.75;
+  font-size: 0.95rem;
+}
+.footer-col ul {
+  list-style: none;
+}
+.footer-col ul li {
+  margin-bottom: 6px;
+}
+.footer-col ul li::before {
+  content: "› ";
+  color: var(--accent);
+  font-weight: 700;
+}
+.footer-bottom {
+  border-top: 1px solid #1f2d3d;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.6;
+}
+
+/* ------------------------------------------------------
+   8. Адаптивность
+------------------------------------------------------ */
+@media (max-width: 768px) {
+  .header .container {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+  .nav-list {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .hero-content h1 {
+    font-size: 2.4rem;
+  }
+  .hero-stats {
+    width: 100%;
+    justify-content: center;
+  }
+  .section-title {
+    font-size: 1.8rem;
+  }
+  .footer-grid {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  .btn-group .btn {
+    width: 100%;
+    text-align: center;
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
